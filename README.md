@@ -41,7 +41,7 @@ sample_id_pattern: Regular expression pattern to extract sample IDs from filenam
 
 2. Run the main script:
 
-python salmon_processing.py
+python salmon-data-extractor.ipynb
 
 The consolidated data will be saved in the specified output file.
 
