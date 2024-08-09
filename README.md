@@ -38,8 +38,9 @@ GEMPD is a comprehensive pipeline for processing gene expression data stored as 
 [git clone https://github.com/your-username/GEMPD.git](https://github.com/ensiferum877/salmon-rna-ml-pipeline)
 
 2. Install required Python libraries:
-
+```bash
 pip install pandas numpy tqdm pyyaml
+```
 
 3. Install required R libraries:
 ```R
@@ -68,20 +69,72 @@ Creates DESeq objects
 Runs multiple machine learning models in parallel
 Evaluates model performance
 
-
 ## Configuration
 
-Key parameters in config.yaml:
+The `config.yaml` file is the cornerstone of the GEMPD pipeline, allowing users to customize various aspects of the data processing and analysis. Below is a detailed description of each parameter:
 
-salmon_input_folder: Path to the folder containing salmon quantification files
-output_folder: Path for output files
-metadata_file: Path to the metadata CSV file
-patients_file: Path to the file containing selected patient IDs
-columns_to_extract: Columns to extract from salmon files (e.g., "TPM")
-top_genes_count: Number of top genes to include in the analysis
-reference_class: Reference class for classification
-max_cores: Maximum number of cores to use for parallel processing
-max_models: Maximum number of machine learning models to run
+### Input/Output Paths
+- `salmon_input_folder`: Path to the directory containing salmon quantification files (.sf)
+  - Example: "/home/user/data/salmon_quant/"
+- `output_folder`: Directory where all output files will be saved
+  - Example: "/home/user/results/GEMPD_output/"
+- `metadata_file`: Path to the CSV file containing metadata for the samples
+  - Example: "/home/user/data/metadata.csv"
+- `patients_file`: Path to the TSV file listing selected patient IDs
+  - Example: "/home/user/data/selected_patients.tsv"
+
+### Data Processing Parameters
+- `columns_to_extract`: List of columns to extract from salmon files
+  - Example: ["TPM"]  # Transcript Per Million
+- `batch_size`: Number of files to process in each batch (for memory management)
+  - Example: 100
+- `sample_id_pattern`: Regular expression to extract sample IDs from filenames
+  - Example: '(?P<sample_id>\d{4}-SL-\d{4})'
+
+### Filtering Parameters
+- `patients_id_column`: Column name in the patients file containing IDs
+  - Example: "HudAlphaID"
+- `meta_analysis_file`: Path to file containing gene importance information
+  - Example: "/home/user/data/gene_importance.csv"
+- `feature_importance_column`: Column name for feature importance in meta-analysis file
+  - Example: "Feature_Importance_1"
+- `top_genes_count`: Number of top genes to include based on importance
+  - Example: 151
+- `filtered_data_filename`: Name of the output file for filtered data
+  - Example: "filtered_data.tsv"
+- `proceed_with_filtering`: Boolean to control whether to apply filtering
+  - Example: true
+
+### Machine Learning Parameters
+- `reference_class`: The reference class for classification tasks
+  - Example: "Control"
+- `max_cores`: Maximum number of CPU cores to use (null for all available)
+  - Example: 4
+- `max_models`: Maximum number of ML models to run (null for all available)
+  - Example: null
+
+### Example Configuration
+```yaml
+salmon_input_folder: "/home/user/data/salmon_quant/"
+output_folder: "/home/user/results/GEMPD_output/"
+metadata_file: "/home/user/data/metadata.csv"
+patients_file: "/home/user/data/selected_patients.tsv"
+
+columns_to_extract: ["TPM"]
+batch_size: 100
+sample_id_pattern: '(?P<sample_id>\d{4}-SL-\d{4})'
+
+patients_id_column: "HudAlphaID"
+meta_analysis_file: "/home/user/data/gene_importance.csv"
+feature_importance_column: "Feature_Importance_1"
+top_genes_count: 151
+filtered_data_filename: "filtered_data.tsv"
+proceed_with_filtering: true
+
+reference_class: "Control"
+max_cores: 4
+max_models: null
+```
 
 ## Output
 
