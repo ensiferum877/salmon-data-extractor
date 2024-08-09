@@ -37,3 +37,12 @@ GEMPD is a comprehensive pipeline for processing gene expression data stored as 
 ## Installation
 
 1. Clone the repository:
+[git clone https://github.com/your-username/GEMPD.git](https://github.com/ensiferum877/salmon-rna-ml-pipeline)
+
+2. Install required Python libraries:
+```python
+pip install pandas numpy tqdm pyyaml
+
+4. 3. Install required R libraries:
+```R
+install.packages(c("MLSeq", "DESeq2", "S4Vectors", "kernlab", "parallel", "doParallel", "foreach"))
