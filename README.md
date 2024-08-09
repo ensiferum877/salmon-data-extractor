@@ -69,7 +69,8 @@ Runs multiple machine learning models in parallel
 Evaluates model performance
 
 
-## Configuration
+## Configuration
+
 Key parameters in config.yaml:
 
 salmon_input_folder: Path to the folder containing salmon quantification files
@@ -82,7 +83,7 @@ reference_class: Reference class for classification
 max_cores: Maximum number of cores to use for parallel processing
 max_models: Maximum number of machine learning models to run
 
-## Output
+## Output
 
 Consolidated and filtered gene expression data: filtered_data.tsv
 Machine learning model results: ml_model_results.csv
