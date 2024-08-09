@@ -1,0 +1,28 @@
+# Input/Output paths
+
+salmon_input_folder: "/home/jovyan/mounted_data/quant_salmon_genes/"
+output_folder: "/home/jovyan/mounted_data/GEML_pipe/Outputs/"
+metadata_file: "/home/jovyan/mounted_data/meta_data.11192021.csv"
+patients_file: "/home/jovyan/mounted_data/PatientsSelected.tsv"
+
+# Data processing parameters
+
+columns_to_extract: ["TPM"]
+batch_size: 100
+sample_id_pattern: '(?P<sample_id>\d{4}-SL-\d{4})'
+
+# Filtering parameters
+
+patients_file: "/home/jovyan/mounted_data/PatientsSelected.tsv"
+patients_id_column: "HudAlphaID"
+meta_analysis_file: "/home/jovyan/mounted_data/Meta-analysis-RNAseq-PD-v2.csv"
+feature_importance_column: "Feature_Importance_1"
+top_genes_count: 151
+filtered_data_filename :  "filtered_data.tsv"
+proceed_with_filtering :  null
+
+# Machine learning parameters
+
+reference_class: "Label defined by the user"
+max_cores: null  # Set to null to use all available cores, or specify a number
+max_models: null  # Set to null to run all available models, or specify a number
