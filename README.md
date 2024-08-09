@@ -1,8 +1,8 @@
-# Salmon quantification data processing with the evaluation of multiple ML classification algorithms
+# Gene Expression Machine Learning (GEML) pipeline 
 
 ## Overview
 
-GEMPD is a comprehensive pipeline for processing gene expression data stored as salmon quantification files and applying multiple machine learning classification algorithms to RNA-seq data. This pipeline is designed to streamline the analysis of transcriptomic data.
+GEML is a comprehensive pipeline for processing gene expression data stored as salmon quantification files and applying multiple machine learning classification algorithms to RNA-seq data. This pipeline is designed to streamline the analysis of transcriptomic data.
 
 ## Table of Contents
 
