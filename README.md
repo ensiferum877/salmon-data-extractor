@@ -138,17 +138,48 @@ max_models: null
 
 ## Output
 
-Consolidated and filtered gene expression data: filtered_data.tsv
-Machine learning model results: ml_model_results.csv
+The GEMPD pipeline produces two main outputs:
 
-The ml_model_results.csv file contains:
+1. Filtered Gene Expression Matrix
+2. Machine Learning Evaluation Metrics
 
-Model name
-Method
-Transformation/Normalization technique
-Accuracy
-Kappa statistic
-Execution time
+### 1. Filtered Gene Expression Matrix
+
+Filename: `filtered_data.tsv`
+
+This file contains the processed and filtered gene expression data in a tabular format.
+
+Format:
+- Tab-separated values (TSV)
+- Rows represent genes
+- Columns represent samples
+
+Content:
+- First column: Gene identifiers (e.g., ENSEMBL IDs or gene symbols)
+- Subsequent columns: Expression values for each sample (e.g., TPM values)
+
+
+### 2. Machine Learning Evaluation Metrics
+
+Filename: `ml_model_results.csv`.  This file contains:
+
+This file contains the performance metrics and details for each machine learning model applied to the gene expression data.
+
+Format:
+- Comma-separated values (CSV)
+- Each row represents a different machine learning model or configuration
+
+Columns:
+1. `Model`: Name of the machine learning model
+2. `Method`: Specific algorithm or method used
+3. `Transformation`: Data transformation technique applied (if any)
+4. `Normalization`: Data normalization method used
+5. `PreProcessing`: Any preprocessing steps applied to the data
+6. `Reference`: Reference class used for classification
+7. `Accuracy`: Overall accuracy of the model
+8. `Kappa`: Cohen's Kappa statistic (measure of agreement)
+9. `Time`: Execution time for the model (in minutes)
+10. `Error`: Any error messages encountered during model execution (if applicable)
 
 ## Troubleshooting
 
